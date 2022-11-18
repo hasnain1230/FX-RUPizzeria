@@ -1,4 +1,4 @@
-package rupizzeria.fxrupizzeria;
+package fx_rupizzeria;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

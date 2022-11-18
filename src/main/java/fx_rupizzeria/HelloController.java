@@ -1,4 +1,4 @@
-package rupizzeria.fxrupizzeria;
+package fx_rupizzeria;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

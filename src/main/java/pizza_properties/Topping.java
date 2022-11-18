@@ -1,4 +1,4 @@
-package pizzas;
+package pizza_properties;
 
 public enum Topping {
     // FIXME: Do we need to add more toppings?
