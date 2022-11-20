@@ -24,8 +24,8 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-    mainModule = 'rupizzeria.fxrupizzeria'
-    mainClass = 'rupizzeria.fxrupizzeria.HelloApplication'
+    mainModule = 'fxrupizzeria'
+    mainClass = 'fxrupizzeria.RUPizzeriaApp'
 }
 
 javafx {

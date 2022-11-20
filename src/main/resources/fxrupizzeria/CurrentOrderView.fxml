@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxrupizzeria.CurrentOrderViewController">
+    <center>
+        <AnchorPane prefHeight="400.0" prefWidth="500.0">
+            <children>
+                <Label alignment="CENTER" layoutX="44.0" prefHeight="67.0" prefWidth="411.0" text="Current Orders">
+                    <font>
+                        <Font name="Javanese Text" size="24.0" />
+                    </font>
+                </Label>
+                <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="67.0" prefHeight="26.0" prefWidth="260.0" spacing="10.0">
+                    <children>
+                        <Label text="Order Number" />
+                        <TextField editable="false" prefHeight="26.0" prefWidth="88.0" text="1" />
+                    </children>
+                </HBox>
+                <ListView layoutX="14.0" layoutY="100.0" prefHeight="200.0" prefWidth="472.0" />
+                <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="310.0" prefHeight="26.0" prefWidth="326.0" spacing="10.0">
+                    <children>
+                        <Label text="Subtotal $" />
+                        <TextField editable="false" prefHeight="26.0" prefWidth="88.0" />
+                        <Label text="Sales Tax $" />
+                        <TextField editable="false" prefHeight="26.0" prefWidth="89.0" />
+                    </children></HBox>
+                <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="346.0" prefHeight="18.0" prefWidth="274.0" spacing="10.0">
+                    <children>
+                        <Label text="Order Total $" />
+                        <TextField editable="false" />
+                    </children>
+                </HBox>
+                <Button layoutX="397.0" layoutY="310.0" mnemonicParsing="false" text="Remove Pizza" />
+                <Button layoutX="408.0" layoutY="346.0" mnemonicParsing="false" text="Clear Order" />
+                <Button layoutX="319.0" layoutY="346.0" mnemonicParsing="false" text="Place Order" />
+            </children>
+        </AnchorPane>
+    </center>
+    <bottom>
+        <TextArea editable="false" prefHeight="150.0" prefWidth="500.0" BorderPane.alignment="CENTER" />
+    </bottom>
+</BorderPane>

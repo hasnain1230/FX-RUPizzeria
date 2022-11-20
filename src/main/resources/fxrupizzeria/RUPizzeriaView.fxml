@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: tomato;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxrupizzeria.RUPizzeriaViewController">
+    <children>
+        <Label alignment="CENTER" layoutX="58.0" prefHeight="60.0" prefWidth="483.0" text="RU PIZZA" textAlignment="CENTER">
+            <font>
+                <Font name="Javanese Text" size="30.0" />
+            </font>
+        </Label>
+        <GridPane alignment="CENTER" hgap="20.0" layoutX="18.0" layoutY="67.0" prefHeight="423.0" prefWidth="563.0" vgap="20.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Button fx:id="chicagoButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#loadChicago" prefHeight="220.0" prefWidth="272.0" style="-fx-background-color: cornsilk;" text="Chicago Style Pizza">
+                    <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="https://res.cloudinary.com/hksqkdlah/image/upload/SFS_chicago_deep_dish_pizza-16_cehf9d.jpg" />
+                            </image>
+                        </ImageView>
+                    </graphic></Button>
+                <Button fx:id="nyButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#loadNy" prefHeight="232.0" prefWidth="272.0" style="-fx-background-color: cornsilk;" text="New York Style Pizza" GridPane.columnIndex="1">
+                    <graphic>
+                        <ImageView fitHeight="152.0" fitWidth="158.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="https://foodfolksandfun.net/wp-content/uploads/2013/07/NY-Style-Pizza-500x500.jpg" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="storeOrdersButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#loadStoreOrders" prefHeight="218.0" prefWidth="272.0" style="-fx-background-color: cornsilk;" text="Store Orders" GridPane.rowIndex="1">
+                    <graphic>
+                        <ImageView fitHeight="161.0" fitWidth="167.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="https://static.vecteezy.com/system/resources/previews/001/890/108/non_2x/little-pizza-store-building-facade-scene-free-vector.jpg" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="currentOrderButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#loadCurrentOrder" prefHeight="238.0" prefWidth="272.0" style="-fx-background-color: cornsilk;" text="Current Orders" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <graphic>
+                        <ImageView fitHeight="159.0" fitWidth="185.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="https://static.vecteezy.com/system/resources/previews/004/999/463/original/shopping-cart-icon-illustration-free-vector.jpg" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>

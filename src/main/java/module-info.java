@@ -3,6 +3,6 @@ module rupizzeria.fxrupizzeria {
     requires javafx.fxml;
 
 
-    opens fx_rupizzeria to javafx.fxml;
-    exports fx_rupizzeria;
+    opens fxrupizzeria to javafx.fxml;
+    exports fxrupizzeria;
 }

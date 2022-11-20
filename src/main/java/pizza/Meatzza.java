@@ -4,11 +4,9 @@ import constants.Constants;
 import pizza.properties.Crust;
 import pizza.properties.Pizza;
 import pizza.properties.Size;
-import pizza.properties.Topping;
 
-public class Deluxe extends Pizza {
-
-    public Deluxe(Crust crust) {
+public class Meatzza extends Pizza {
+    public Meatzza(Crust crust) {
         super(crust);
     }
 
@@ -19,11 +17,11 @@ public class Deluxe extends Pizza {
     @Override
     public double price() {
         if (super.getSize() == Size.SMALL) {
-            return Constants.SMALL_DELUXE;
+            return Constants.SMALL_MEATZZA;
         } else if (super.getSize() == Size.MEDIUM) {
-            return Constants.MEDIUM_DELUXE;
+            return Constants.MEDIUM_MEATZZA;
         } else if (super.getSize() == Size.LARGE) {
-            return Constants.LARGE_DELUXE;
+            return Constants.LARGE_MEATZZA;
         } else {
             return Constants.ERROR;
         }

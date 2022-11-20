@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxrupizzeria.StoreOrdersViewController">
+    <center>
+        <AnchorPane prefHeight="400.0" prefWidth="500.0">
+            <children>
+                <Label alignment="CENTER" layoutX="17.0" prefHeight="67.0" prefWidth="465.0" text="Store Orders">
+                    <font>
+                        <Font name="Javanese Text" size="24.0" />
+                    </font>
+                </Label>
+                <HBox alignment="CENTER_LEFT" layoutX="17.0" layoutY="67.0" prefHeight="0.0" prefWidth="466.0" spacing="5.0">
+                    <children>
+                        <Label text="Order Number" />
+                        <ComboBox prefHeight="26.0" prefWidth="104.0" />
+                        <Label text="Order Total (w/ tax) $" />
+                        <TextField editable="false" prefHeight="26.0" prefWidth="110.0" />
+                    </children>
+                </HBox>
+                <ListView layoutX="17.0" layoutY="103.0" prefHeight="220.0" prefWidth="466.0" />
+                <HBox alignment="CENTER" layoutX="129.0" layoutY="345.0" prefHeight="26.0" prefWidth="242.0" spacing="20.0">
+                    <children>
+                        <Button mnemonicParsing="false" text="Cancel Order" />
+                        <Button mnemonicParsing="false" text="Export Store Order" />
+                    </children>
+                </HBox>
+            </children>
+        </AnchorPane>
+    </center>
+    <bottom>
+        <TextArea editable="false" prefHeight="150.0" prefWidth="500.0" BorderPane.alignment="CENTER" />
+    </bottom>
+</BorderPane>
+

@@ -1,4 +1,4 @@
-package pizza_properties;
+package pizza.properties;
 
 public interface Customizable {
     boolean add(Object obj);

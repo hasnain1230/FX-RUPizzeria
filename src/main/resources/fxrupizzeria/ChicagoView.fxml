@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxrupizzeria.ChicagoViewController">
+    <center>
+        <AnchorPane prefHeight="408.0" prefWidth="500.0">
+            <children>
+                <Label alignment="CENTER" layoutX="44.0" prefHeight="67.0" prefWidth="412.0" text="Chicago Style Pizza">
+                    <font>
+                        <Font name="Javanese Text" size="24.0" />
+                    </font>
+                </Label>
+                <VBox alignment="CENTER" layoutX="19.0" layoutY="67.0" prefHeight="110.0" prefWidth="203.0" spacing="20">
+                    <children>
+                        <ComboBox fx:id="typeComboBox" onAction="#menuDisplay" prefHeight="26.0" prefWidth="186.0" />
+                        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="219.0" spacing="20.0">
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                            <children>
+                                <RadioButton fx:id="smallRadioButton" mnemonicParsing="false" onAction="#smallPriceChange" selected="true" text="small">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="chicagoSize" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="mediumRadioButton" mnemonicParsing="false" onAction="#mediumPriceChange" text="medium" toggleGroup="$chicagoSize" />
+                                <RadioButton fx:id="largeRadioButton" mnemonicParsing="false" onAction="#largePriceChange" text="large" toggleGroup="$chicagoSize" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="12.0" prefWidth="219.0" spacing="15.0">
+                            <children>
+                                <Label text="Crust" />
+                                <TextField fx:id="crustTextField" editable="false" prefHeight="26.0" prefWidth="130.0" text="Pan" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox layoutX="17.0" layoutY="188.0" prefHeight="148.0" prefWidth="203.0">
+                    <children>
+                        <Label text="Available Toppings" />
+                        <ListView fx:id="availableToppings" prefHeight="131.0" prefWidth="194.0" />
+                    </children>
+                </VBox>
+                <HBox alignment="CENTER" layoutX="19.0" layoutY="348.0" prefHeight="26.0" prefWidth="203.0">
+                    <children>
+                        <Label text="Pizza Price $" />
+                        <TextField fx:id="priceTextField" editable="false" prefHeight="26.0" prefWidth="102.0" text="8.99" />
+                    </children>
+                </HBox>
+                <VBox layoutX="282.0" layoutY="188.0" prefHeight="148.0" prefWidth="203.0">
+                    <children>
+                        <Label text="Selected Toppings" />
+                        <ListView fx:id="selectedToppings" prefHeight="131.0" prefWidth="195.0" />
+                    </children>
+                </VBox>
+                <ImageView fx:id="pizzaImage" fitHeight="110.0" fitWidth="203.0" layoutX="282.0" layoutY="67.0" pickOnBounds="true">
+                    <image>
+                        <Image url="https://res.cloudinary.com/hksqkdlah/image/upload/SFS_chicago_deep_dish_pizza-16_cehf9d.jpg" />
+                    </image></ImageView>
+                <Button fx:id="addToppingButton" layoutX="234.0" layoutY="226.0" mnemonicParsing="false" onAction="#addTopping" text="&gt;&gt;" />
+                <Button fx:id="removeToppingButton" layoutX="234.0" layoutY="275.0" mnemonicParsing="false" onAction="#removeTopping" text="&lt;&lt;" />
+                <Button layoutX="282.0" layoutY="348.0" mnemonicParsing="false" onAction="#addOrder" prefHeight="26.0" prefWidth="203.0" text="Add to Order" />
+            </children>
+        </AnchorPane>
+    </center>
+    <bottom>
+        <TextArea fx:id="outputTextArea" editable="false" prefHeight="150.0" prefWidth="500.0" BorderPane.alignment="CENTER" />
+    </bottom>
+</BorderPane>
