@@ -27,10 +27,6 @@ public abstract class Pizza implements Customizable {
         return false;
     }
 
-    public void setCrust(Crust crust) {
-        this.crust = crust;
-    }
-
     public void setSize(Size size) {
         this.size = size;
     }

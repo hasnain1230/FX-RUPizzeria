@@ -4,6 +4,7 @@ import constants.Constants;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import pizza.properties.Pizza;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -81,7 +82,6 @@ public class ChicagoViewController implements Initializable {
         largePriceChange();
     }
 
-    //TODO: make prices constants
     @FXML
     protected void smallPriceChange() {
         if (this.smallRadioButton.isSelected()) {
@@ -131,9 +131,10 @@ public class ChicagoViewController implements Initializable {
     @FXML
     protected void addTopping() {
         if (this.typeComboBox.getValue().equalsIgnoreCase(Constants.TYPES[0])) {
-            if (this.selectedToppings.getItems().stream().count() != Constants.MAXIMUM_TOPPINGS) {
+            if ((long) this.selectedToppings.getItems().size() != Constants.MAXIMUM_TOPPINGS) {
                 this.selectedToppings.getItems().add(this.availableToppings.getSelectionModel().getSelectedItem());
                 this.availableToppings.getItems().remove(this.availableToppings.getSelectionModel().getSelectedItem());
+                this.priceTextField.setText(String.valueOf(Double.parseDouble(this.priceTextField.getText().trim()) + Constants.ADDITIONAL_TOPPING_COST));
             } else {
                 this.outputTextArea.appendText("Cannot add more than 7 toppings!\n");
             }
@@ -148,6 +149,7 @@ public class ChicagoViewController implements Initializable {
             if (!this.selectedToppings.getItems().isEmpty()) {
                 this.availableToppings.getItems().add(this.selectedToppings.getSelectionModel().getSelectedItem());
                 this.selectedToppings.getItems().remove(this.selectedToppings.getSelectionModel().getSelectedItem());
+                this.priceTextField.setText(String.valueOf(Double.parseDouble(this.priceTextField.getText().trim()) - Constants.ADDITIONAL_TOPPING_COST));
             } else {
                 this.outputTextArea.appendText("No toppings to remove!\n");
             }
@@ -158,6 +160,11 @@ public class ChicagoViewController implements Initializable {
 
     @FXML
     protected void addOrder() {
+        Pizza order = null;
+
+        if (this.typeComboBox.getValue().equalsIgnoreCase(Constants.TYPES[0])) {
+
+        }
         this.outputTextArea.appendText("Pizza Order was Added!\n");
         this.typeComboBox.setValue(this.typeComboBox.getItems().get(0));
         menuDisplay();

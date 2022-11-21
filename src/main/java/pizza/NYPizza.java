@@ -1,8 +1,10 @@
 package pizza;
 
+import orders.Order;
 import pizza.properties.Crust;
 import pizza.properties.Pizza;
 import pizza.properties.Size;
+import pizza.properties.Topping;
 
 public class NYPizza implements PizzaFactory {
     /**

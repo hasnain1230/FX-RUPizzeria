@@ -1,5 +1,9 @@
 package constants;
 
+/**
+ * This class stores all the constants used in {@code FX-RUPizzeria} and its dependencies
+ * @author Hasnain Ali, Carolette Saguil
+ */
 public class Constants {
     public static final double SMALL_DELUXE = 14.99;
     public static final double MEDIUM_DELUXE = 16.99;
