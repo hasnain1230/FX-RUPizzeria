@@ -4,6 +4,8 @@ import constants.Constants;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import orders.Order;
 import pizza.ChicagoPizza;
 import pizza.NYPizza;
@@ -11,6 +13,7 @@ import pizza.properties.Pizza;
 import pizza.properties.Size;
 import pizza.properties.Topping;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -44,6 +47,9 @@ public class NYViewController implements Initializable {
     @FXML
     private TextArea outputTextArea;
 
+    @FXML
+    private ImageView pizzaImage;
+
     private Order currentOrder;
 
     @Override
@@ -61,29 +67,38 @@ public class NYViewController implements Initializable {
 
     //TODO: change images when change type
     @FXML
-    protected void menuDisplay() {
+    protected void menuDisplay() throws FileNotFoundException {
+        Image defaultImage = new Image(new FileInputStream("src\\main\\java\\images\\nyDefault.jpg"));
+        Image deluxeImage = new Image(new FileInputStream("src\\main\\java\\images\\nyDeluxe.jpg"));
+        Image bbqImage = new Image(new FileInputStream("src\\main\\java\\images\\nyBBQ.jpg"));
+        Image meatzzaImage = new Image(new FileInputStream("src\\main\\java\\images\\nyMeatzza.jpg"));
+
         if (this.typeComboBox.getValue().equalsIgnoreCase(Constants.TYPES[0])) {
             this.resetAvailableToppings();
             this.crustTextField.setText("HandTossed");
             this.selectedToppings.getItems().clear();
+            this.pizzaImage.setImage(defaultImage);
         } else if (this.typeComboBox.getValue().equalsIgnoreCase(Constants.TYPES[1])) {
             this.resetAvailableToppings();
             this.crustTextField.setText("Brooklyn");
             this.selectedToppings.getItems().clear();
             this.selectedToppings.getItems().addAll(Constants.DELUXE_TOPPINGS);
             this.availableToppings.getItems().removeAll(Constants.DELUXE_TOPPINGS);
+            this.pizzaImage.setImage(deluxeImage);
         } else if (this.typeComboBox.getValue().equalsIgnoreCase(Constants.TYPES[2])) {
             this.resetAvailableToppings();
             this.crustTextField.setText("Thin");
             this.selectedToppings.getItems().clear();
             this.selectedToppings.getItems().addAll(Constants.BBQ_CHICKEN_TOPPINGS);
             this.availableToppings.getItems().removeAll(Constants.BBQ_CHICKEN_TOPPINGS);
+            this.pizzaImage.setImage(bbqImage);
         } else {
             this.resetAvailableToppings();
             this.crustTextField.setText("HandTossed");
             this.selectedToppings.getItems().clear();
             this.selectedToppings.getItems().addAll(Constants.MEATZZA_TOPPINGS);
             this.availableToppings.getItems().removeAll(Constants.MEATZZA_TOPPINGS);
+            this.pizzaImage.setImage(meatzzaImage);
         }
 
         this.smallPriceChange();
