@@ -164,10 +164,15 @@ public class ChicagoViewController implements Initializable {
 
         if (this.typeComboBox.getValue().equalsIgnoreCase(Constants.TYPES[0])) {
 
+        } else if (this.typeComboBox.getValue().equalsIgnoreCase(Constants.TYPES[1])) {
+
+        } else if (this.typeComboBox.getValue().equalsIgnoreCase(Constants.TYPES[2])) {
+
+        } else {
+
         }
         this.outputTextArea.appendText("Pizza Order was Added!\n");
         this.typeComboBox.setValue(this.typeComboBox.getItems().get(0));
         menuDisplay();
     }
-
 }

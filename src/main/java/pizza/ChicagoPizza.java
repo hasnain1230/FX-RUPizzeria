@@ -4,15 +4,14 @@ import pizza.properties.Crust;
 import pizza.properties.Pizza;
 import pizza.properties.Size;
 
+/**
+ * Implements a Chicago Style Pizza. Implements from Pizza Factory which allows for either Deluxe, Meatzza, BBQChicken, or BuildYourOwnPizza
+ * to be created in Chicago Crust Style.
+ * @author Hasnain Ali, Carolette Saguil
+ */
 public class ChicagoPizza implements PizzaFactory {
-    private final Size pizzaSize;
-
-    public ChicagoPizza(Size pizzaSize) {
-        this.pizzaSize = pizzaSize;
-    }
-
     /**
-     * @return 
+     * @return A Deluxe Chicago Style Pizza
      */
     @Override
     public Pizza createDeluxe() {
@@ -20,7 +19,7 @@ public class ChicagoPizza implements PizzaFactory {
     }
 
     /**
-     * @return 
+     * @return A Meatzza Chicago Style Pizza
      */
     @Override
     public Pizza createMeatzza() {
@@ -28,7 +27,7 @@ public class ChicagoPizza implements PizzaFactory {
     }
 
     /**
-     * @return 
+     * @return A BBQChicken Chicago Style Pizza
      */
     @Override
     public Pizza createBBQChicken() {
@@ -36,7 +35,7 @@ public class ChicagoPizza implements PizzaFactory {
     }
 
     /**
-     * @return 
+     * @return A BuildYourOwn Chicago Style Pizza
      */
     @Override
     public Pizza createBuildYourOwn() {
