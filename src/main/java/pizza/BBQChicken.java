@@ -5,14 +5,22 @@ import pizza.properties.Crust;
 import pizza.properties.Pizza;
 import pizza.properties.Size;
 
+/**
+ * This class is an encapsulation for any type of BBQChicken used in {@code FX-RUPizzeria}. Depending on the Crust Style,
+ * this class can account for any type of BBQChicken Pizza. It inherits from {@code Pizza.java}.
+ * @author Hasnain Ali, Carolette Saguil
+ */
 public class BBQChicken extends Pizza {
+    /**
+     * @param crust The type of crust for the Pizza.
+     */
     public BBQChicken(Crust crust) {
         super(crust);
     }
 
 
     /**
-     * @return
+     * @return The price of the Pizza depending on the size. Error if no size is defined.
      */
     @Override
     public double price() {

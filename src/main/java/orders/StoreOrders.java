@@ -1,23 +1,34 @@
 package orders;
 
-import pizza.NYPizza;
 import pizza.properties.Customizable;
 import pizza.properties.Pizza;
 
 import java.io.*;
-import java.nio.file.Path;
 import java.util.HashSet;
-import java.util.OptionalDouble;
-import java.util.Scanner;
 
+
+/**
+ * Encapsulation that stores all the orders placed in the {@code FX-RUPizzeria} store
+ * @authors Hasnain Ali, Carolette Saguil
+ */
 public class StoreOrders implements Customizable {
+    /**
+     * Using a HashSet for all the orders in case we want quick look up times for a specific order.
+     */
     private final HashSet<Order> orders;
 
+    /**
+     * Constructor that initializes the HashSet for {@code orders}.
+     */
     public StoreOrders() {
         this.orders = new HashSet<>();
     }
 
-    public String export() { // FIXME: BRUH
+    /**
+     * This method will take all current orders and write them into a file.
+     * @return A String with the file path of where {@code orders.export} was written.
+     */
+    public String export() {
         try {
             File fileToWrite = new File("./orders.export");
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileToWrite));
@@ -46,8 +57,8 @@ public class StoreOrders implements Customizable {
     }
 
     /**
-     * @param obj 
-     * @return
+     * @param obj An order to add into {@code StoreOrders}.
+     * @return Whether the order was successfully added into {@code StoreOrders}.
      */
     @Override
     public boolean add(Object obj) {
@@ -60,8 +71,8 @@ public class StoreOrders implements Customizable {
     }
 
     /**
-     * @param obj 
-     * @return
+     * @param obj An order to remove from {@code StoreOrders}.
+     * @return Whether the order was successfully removed from {@code StoreOrders}.
      */
     @Override
     public boolean remove(Object obj) {

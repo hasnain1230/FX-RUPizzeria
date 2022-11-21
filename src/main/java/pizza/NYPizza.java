@@ -1,14 +1,17 @@
 package pizza;
 
-import orders.Order;
 import pizza.properties.Crust;
 import pizza.properties.Pizza;
-import pizza.properties.Size;
-import pizza.properties.Topping;
 
+
+/**
+ * Implements a New York Style Pizza. Implements from Pizza Factory which allows for either Deluxe, Meatzza, BBQChicken, or BuildYourOwnPizza
+ * to be created in New York Crust Style.
+ * @author Hasnain Ali, Carolette Saguil
+ */
 public class NYPizza implements PizzaFactory {
     /**
-     * @return
+     * @return A Deluxe Chicago Style Pizza
      */
     @Override
     public Pizza createDeluxe() {
@@ -16,7 +19,7 @@ public class NYPizza implements PizzaFactory {
     }
 
     /**
-     * @return
+     * @return A Meatzza Chicago Style Pizza
      */
     @Override
     public Pizza createMeatzza() {
@@ -24,7 +27,7 @@ public class NYPizza implements PizzaFactory {
     }
 
     /**
-     * @return
+     * @return A BBQChicken Chicago Style Pizza
      */
     @Override
     public Pizza createBBQChicken() {
@@ -32,7 +35,7 @@ public class NYPizza implements PizzaFactory {
     }
 
     /**
-     * @return
+     * @return A BuildYourOwn Chicago Style Pizza
      */
     @Override
     public Pizza createBuildYourOwn() {

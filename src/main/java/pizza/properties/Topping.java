@@ -1,10 +1,17 @@
 package pizza.properties;
 
+/**
+ * Enum class listing all the toppings supported by {@code FX-RUPizzeria}.
+ */
 public enum Topping {
     SAUSAGE, PEPPERONI, GREEN_PEPPER, ONION, MUSHROOM, BBQ_CHICKEN, PROVOLONE, CHEDDAR, BEEF, HAM, BACON, OLIVES, PINEAPPLE;
 
-    public static Topping returnToppingEnumFromString(String string) {
-        if (string.equalsIgnoreCase("sausage")){
+    /**
+     * @param string The string to return the topping of.
+     * @return An enum based on the string parameter for the toppings.
+     */   
+    public Topping returnToppingEnumFromString (String string) {
+        if (string.equalsIgnoreCase("sausage")) {
             return Topping.SAUSAGE;
         } else if (string.equalsIgnoreCase("pepperoni")) {
             return Topping.PEPPERONI;
@@ -33,7 +40,6 @@ public enum Topping {
         } else {
             return null;
         }
-
     }
 }
 
