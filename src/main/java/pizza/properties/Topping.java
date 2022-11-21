@@ -10,7 +10,7 @@ public enum Topping {
      * @param string The string to return the topping of.
      * @return An enum based on the string parameter for the toppings.
      */   
-    public Topping returnToppingEnumFromString (String string) {
+    public static Topping returnToppingEnumFromString(String string) {
         if (string.equalsIgnoreCase("sausage")) {
             return Topping.SAUSAGE;
         } else if (string.equalsIgnoreCase("pepperoni")) {
