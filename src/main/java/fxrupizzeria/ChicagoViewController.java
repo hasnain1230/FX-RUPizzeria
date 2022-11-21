@@ -199,7 +199,7 @@ public class ChicagoViewController implements Initializable {
             Pizza byo = new ChicagoPizza().createBuildYourOwn();
             byo.setSize(getSize());
 
-            for(int i = 0; i<this.selectedToppings.getItems().stream().count(); i++){
+            for(int i = 0; i < this.selectedToppings.getItems().stream().count(); i++){
                 byo.add(Topping.returnToppingEnumFromString(this.selectedToppings.getItems().get(i).toUpperCase()));
             }
 
