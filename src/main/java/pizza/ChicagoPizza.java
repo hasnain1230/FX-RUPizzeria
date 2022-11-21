@@ -5,12 +5,6 @@ import pizza.properties.Pizza;
 import pizza.properties.Size;
 
 public class ChicagoPizza implements PizzaFactory {
-    private final Size pizzaSize;
-
-    public ChicagoPizza(Size pizzaSize) {
-        this.pizzaSize = pizzaSize;
-    }
-
     /**
      * @return 
      */
