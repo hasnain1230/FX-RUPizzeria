@@ -32,11 +32,14 @@ public class Order implements Customizable {
         this.pizzasInOrder = new HashSet<>();
     }
 
+    /**
+     * Copy constructor for order.
+     * @param order Order to copy.
+     */
     public Order(Order order) {
         this.orderID = order.orderID;
         this.pizzasInOrder = new HashSet<>(order.pizzasInOrder);
     }
-
 
     /**
      * @return Returns the order ID.

@@ -15,6 +15,10 @@ import java.util.UUID;
  */
 public class RUPizzeriaApp extends Application {
     /**
+     * This is called by Application.launch() on start up. This method is responsible for
+     * loading the fxml file and setting the scene. Upon successful loading of the fxml file, the controller will
+     * also have been set up and the controller {@code initialize()} method will have been called to set up the basic
+     * state of the application.
      * @param stage the primary stage for this application, onto which
      *              the application scene can be set.
      *              Applications may create other stages, if needed, but they will not be

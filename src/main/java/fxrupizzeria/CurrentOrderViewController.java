@@ -105,18 +105,17 @@ public class CurrentOrderViewController implements Initializable {
 
     /**
      * Removes a pizza from the current order.
-     * Fails if: no pizza is selected to remove or there are no pizzas in current order
+     * Fails if: no pizza is selected to remove or current order is empty
      */
     @FXML
     protected void removePizza() {
         Pizza itemToRemove = this.ordersListView.getSelectionModel().getSelectedItem();
 
         if (itemToRemove == null || this.ordersListView.getItems().isEmpty()) {
-            this.outputCurrentOrderTextArea.setText("No Pizza To Remove\n");
+            this.outputCurrentOrderTextArea.appendText("No Pizza To Remove\n");
             return;
         }
 
-        // Remove the item from the list view and the order.
         this.ordersListView.getItems().remove(itemToRemove);
         this.currentOrder.getPizzasInOrder().remove(itemToRemove);
 
@@ -127,13 +126,12 @@ public class CurrentOrderViewController implements Initializable {
 
     /**
      * Clears the current order.
-     * Fails if: there are no pizzas in the current order
+     * Fails if: current order is empty
      */
     @FXML
     protected void clearOrder() {
-        // Check if the order is empty.
         if (this.currentOrder.getPizzasInOrder().isEmpty()) {
-            this.outputCurrentOrderTextArea.setText("No Order To Clear\n");
+            this.outputCurrentOrderTextArea.appendText("No Order To Clear\n");
             return;
         }
         this.ordersListView.getItems().clear();
@@ -147,9 +145,8 @@ public class CurrentOrderViewController implements Initializable {
      */
     @FXML
     protected void placeOrder() {
-        // Check if the order is empty.
         if (this.currentOrder.getPizzasInOrder().isEmpty()) {
-            this.outputCurrentOrderTextArea.setText("No Order To Place\n");
+            this.outputCurrentOrderTextArea.appendText("No Order To Place\n");
             return;
         }
 

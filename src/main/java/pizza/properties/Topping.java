@@ -2,6 +2,7 @@ package pizza.properties;
 
 /**
  * Enum class listing all the toppings supported by {@code FX-RUPizzeria}.
+ * @author Hasnain Ali, Carolette Saguil
  */
 public enum Topping {
     SAUSAGE, PEPPERONI, GREEN_PEPPER, ONION, MUSHROOM, BBQ_CHICKEN, PROVOLONE, CHEDDAR, BEEF, HAM, BACON, OLIVES, PINEAPPLE;

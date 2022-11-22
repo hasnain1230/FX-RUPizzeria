@@ -85,6 +85,9 @@ public class NYViewController implements Initializable {
     @FXML
     private ImageView pizzaImage;
 
+    /**
+     * The current order the user adds pizza to.
+     */
     private Order currentOrder;
 
     /**

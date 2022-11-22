@@ -23,7 +23,6 @@ public class BBQChicken extends Pizza {
         super.add(Topping.CHEDDAR);
     }
 
-
     /**
      * @return The price of the Pizza depending on the size. Error if no size is defined.
      */

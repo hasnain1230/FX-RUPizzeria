@@ -86,7 +86,7 @@ public class ChicagoViewController implements Initializable {
     private ImageView pizzaImage;
 
     /**
-     * The order that is currently being added.
+     * The current order the user adds pizza to.
      */
     private static Order currentOrder;
 
@@ -313,7 +313,6 @@ public class ChicagoViewController implements Initializable {
                 this.outputTextArea.appendText("Pizza Order was Added!\n");
             }
         }
-        
         this.typeComboBox.setValue(this.typeComboBox.getItems().get(0));
         this.menuDisplay();
     }

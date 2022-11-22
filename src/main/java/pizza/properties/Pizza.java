@@ -85,6 +85,9 @@ public abstract class Pizza implements Customizable {
         return this.size;
     }
 
+    /**
+     * @return Returns style of the pizza in string representation.
+     */
     public String getStyle() {
         if (this instanceof Deluxe) {
             if (this.crust == Crust.DEEP_DISH) {
