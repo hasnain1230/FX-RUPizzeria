@@ -1,5 +1,10 @@
 package pizza.properties;
 
+import pizza.BBQChicken;
+import pizza.BuildYourOwn;
+import pizza.Deluxe;
+import pizza.Meatzza;
+
 import java.util.ArrayList;
 
 /**
@@ -10,11 +15,11 @@ public abstract class Pizza implements Customizable {
     /**
      * ArrayList of all toppings on this pizza.
      */
-    private ArrayList<Topping> toppings;
+    private final ArrayList<Topping> toppings;
     /**
      * The type of crust used on this pizza.
      */
-    private Crust crust;
+    private final Crust crust;
     /**
      * The size of this pizza.
      */
@@ -80,6 +85,36 @@ public abstract class Pizza implements Customizable {
         return this.size;
     }
 
+    public String getStyle() {
+        if (this instanceof Deluxe) {
+            if (this.crust == Crust.DEEP_DISH) {
+                return "Chicago Style (Deluxe)";
+            } else if (this.crust == Crust.BROOKLYN) {
+                return "New York Style (Deluxe)";
+            }
+        } else if (this instanceof BBQChicken) {
+            if (this.crust == Crust.PAN) {
+                return "Chicago Style (BBQChicken)";
+            } else if (this.crust == Crust.THIN) {
+                return "New York Style (BBQChicken)";
+            }
+        } else if (this instanceof Meatzza) {
+            if (this.crust == Crust.STUFFED) {
+                return "Chicago Style (Meatzza)";
+            } else if (this.crust == Crust.HAND_TOSSED) {
+                return "New York Style (Meatzza)";
+            }
+        } else if (this instanceof BuildYourOwn) {
+            if (this.crust == Crust.PAN) {
+                return "Chicago Style (Build Your Own)";
+            } else if (this.crust == Crust.HAND_TOSSED) {
+                return "New York Style (Build Your Own)";
+            }
+        }
+
+        return null;
+    }
+
     /**
      * @return Abstract method intended to return the price of the current pizza with all the toppings, but does not include sales tax. That is calculated last.
      */
@@ -90,7 +125,7 @@ public abstract class Pizza implements Customizable {
      */
     @Override
     public String toString() {
-        return String.format("Size: %s, Crust: %s, Toppings: %s", this.size, this.crust, this.toppings.toString());
+        return String.format("%s | Size: %s, Crust: %s, Toppings: %s Price: $ %.2f", this.getStyle(), this.size, this.crust, this.toppings, price());
     }
 }
 

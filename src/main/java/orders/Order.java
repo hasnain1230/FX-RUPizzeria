@@ -32,6 +32,12 @@ public class Order implements Customizable {
         this.pizzasInOrder = new HashSet<>();
     }
 
+    public Order(Order order) {
+        this.orderID = order.orderID;
+        this.pizzasInOrder = new HashSet<>(order.pizzasInOrder);
+    }
+
+
     /**
      * @return Returns the order ID.
      */

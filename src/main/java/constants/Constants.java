@@ -31,5 +31,9 @@ public class Constants {
     public static final String[] DELUXE_TOPPINGS = {"Sausage", "Pepperoni","Green Pepper", "Onion", "Mushroom"};
     public static final String[] TYPES = {"Build your own", "Deluxe", "BBQ Chicken", "Meatzza"};
 
+    public static double EMPTY_SUBTOTAL = 0.0;
+    public static double SALES_TAX = (6.625 / 100);
+    public static double CALCULATED_SALES_TAX = (1 + SALES_TAX);
+
     public static final double ERROR = -1;
 }

@@ -1,0 +1,14 @@
+Order ID: 1
+	Chicago Style (Build Your Own) | Size: LARGE, Crust: PAN, Toppings: [SAUSAGE, PEPPERONI, BBQ_CHICKEN, BEEF, HAM, PROVOLONE, BACON] Price: $ 24.12
+	New York Style (Build Your Own) | Size: LARGE, Crust: HAND_TOSSED, Toppings: [SAUSAGE, PEPPERONI, BBQ_CHICKEN, BEEF, HAM, PROVOLONE, BACON] Price: $ 24.12
+	New York Style (Meatzza) | Size: MEDIUM, Crust: HAND_TOSSED, Toppings: [SAUSAGE, PEPPERONI, BEEF, HAM] Price: $ 17.99
+	Chicago Style (Meatzza) | Size: LARGE, Crust: STUFFED, Toppings: [SAUSAGE, PEPPERONI, BEEF, HAM] Price: $ 19.99
+Total Price: (without tax) $86.22
+Total Price (with tax): $91.93
+
+Order ID: 2
+	Chicago Style (Build Your Own) | Size: SMALL, Crust: PAN, Toppings: [] Price: $ 8.99
+	New York Style (Build Your Own) | Size: SMALL, Crust: HAND_TOSSED, Toppings: [] Price: $ 8.99
+Total Price: (without tax) $17.98
+Total Price (with tax): $19.17
+

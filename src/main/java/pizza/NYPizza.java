@@ -23,7 +23,7 @@ public class NYPizza implements PizzaFactory {
      */
     @Override
     public Pizza createMeatzza() {
-        return new Meatzza(Crust.THIN);
+        return new Meatzza(Crust.HAND_TOSSED);
     }
 
     /**
@@ -31,7 +31,7 @@ public class NYPizza implements PizzaFactory {
      */
     @Override
     public Pizza createBBQChicken() {
-        return new BBQChicken(Crust.HAND_TOSSED);
+        return new BBQChicken(Crust.THIN);
     }
 
     /**

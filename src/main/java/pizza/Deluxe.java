@@ -17,6 +17,11 @@ public class Deluxe extends Pizza {
      */
     public Deluxe(Crust crust) {
         super(crust);
+        super.add(Topping.SAUSAGE);
+        super.add(Topping.PEPPERONI);
+        super.add(Topping.GREEN_PEPPER);
+        super.add(Topping.ONION);
+        super.add(Topping.MUSHROOM);
     }
 
 

@@ -4,6 +4,7 @@ import constants.Constants;
 import pizza.properties.Crust;
 import pizza.properties.Pizza;
 import pizza.properties.Size;
+import pizza.properties.Topping;
 
 /**
  * This class is an encapsulation for any type of BBQChicken used in {@code FX-RUPizzeria}. Depending on the Crust Style,
@@ -16,6 +17,10 @@ public class BBQChicken extends Pizza {
      */
     public BBQChicken(Crust crust) {
         super(crust);
+        super.add(Topping.BBQ_CHICKEN);
+        super.add(Topping.GREEN_PEPPER);
+        super.add(Topping.PROVOLONE);
+        super.add(Topping.CHEDDAR);
     }
 
 

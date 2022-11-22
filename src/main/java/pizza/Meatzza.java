@@ -4,6 +4,7 @@ import constants.Constants;
 import pizza.properties.Crust;
 import pizza.properties.Pizza;
 import pizza.properties.Size;
+import pizza.properties.Topping;
 
 /**
  * This class is an encapsulation for any type of Meatzza used in {@code FX-RUPizzeria}. Depending on the Crust Style,
@@ -16,6 +17,10 @@ public class Meatzza extends Pizza {
      */
     public Meatzza(Crust crust) {
         super(crust);
+        super.add(Topping.SAUSAGE);
+        super.add(Topping.PEPPERONI);
+        super.add(Topping.BEEF);
+        super.add(Topping.HAM);
     }
 
     /**

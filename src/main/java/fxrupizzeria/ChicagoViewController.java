@@ -8,7 +8,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import orders.Order;
 import pizza.ChicagoPizza;
-import pizza.PizzaFactory;
 import pizza.properties.Pizza;
 import pizza.properties.Size;
 import pizza.properties.Topping;
@@ -18,58 +17,122 @@ import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * This is a controller class for the Chicago View of the RU Pizzeria Application. It will handle all ActionEvents, button clicks, and any other
+ * behavior that the user can interact with. This class will also handle the logic of the application. This class implements initializable
+ * in order to initialize the basic state of the application upon start.
+ * @author Hasnain Ali, Carolette Saguil
+ */
 public class ChicagoViewController implements Initializable {
 
+    /**
+     * The available toppings list view for Chicago View. This list view will be initialized upon start when the initialize method is called.
+     */
     @FXML
     private ListView<String> availableToppings;
 
+    /**
+     * This is a combo box for selecting pizza type when ordering Chicago Pizza. This combo box will be initialized upon start when the initialize method is called.
+     */
     @FXML
     private ComboBox<String> typeComboBox;
 
+    /**
+     * The crust text field for Chicago View.
+     */
     @FXML
     private TextField crustTextField;
 
+    /**
+     * The selected toppings list view for Chicago View.
+     */
     @FXML
     private ListView<String> selectedToppings;
 
+    /**
+     * The small radio button for Chicago View.
+     */
     @FXML
     private RadioButton smallRadioButton;
 
+    /**
+     * The medium radio button for Chicago View.
+     */
     @FXML
     private RadioButton mediumRadioButton;
 
+    /**
+     * The large radio button for Chicago View.
+     */
     @FXML
     private RadioButton largeRadioButton;
 
+    /**
+     * The price text field for Chicago View.
+     */
     @FXML
     private TextField priceTextField;
 
+    /**
+     * This is the text area where all the program output will be displayed.
+     */
     @FXML
     private TextArea outputTextArea;
 
+    /**
+     * The pizza image view for Chicago view.
+     */
     @FXML
     private ImageView pizzaImage;
 
-    private Order currentOrder;
+    /**
+     * The order that is currently being added.
+     */
+    private static Order currentOrder;
 
+    /**
+     * This method will initialize the available toppings list view, type combo box, and current order for GUI.
+     * It will be called automatically upon the start of the program.
+     * @param arg0 The location used to resolve relative paths for the root object, or
+     *             {@code null} if the location is not known.
+     * @param arg1 The resources used to localize the root object, or {@code null} if
+     *             the root object was not localized.
+     */
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         this.availableToppings.getItems().addAll(Constants.TOPPINGS);
         this.typeComboBox.getItems().addAll(Constants.TYPES);
         this.typeComboBox.setValue(this.typeComboBox.getItems().get(0));
-        currentOrder = new Order();
+        currentOrder = RUPizzeriaViewController.getCurrentOrder();
     }
 
+    /**
+     * This method resets the available topping list view to have all the toppings again.
+     */
     private void resetAvailableToppings() {
         this.availableToppings.getItems().clear();
         this.availableToppings.getItems().addAll(Constants.TOPPINGS);
     }
+
+    /**
+     * Updates the Chicago menu display, including: pizza image view, price text field, available toppings list view,
+     * selected toppings list view, and crust text field, when user selects different types of pizza through type combo box.
+     * @throws FileNotFoundException
+     */
     @FXML
     protected void menuDisplay() throws FileNotFoundException {
-        Image defaultImage = new Image(new FileInputStream("src\\main\\java\\images\\chicagoDefault.jpg"));
-        Image deluxeImage = new Image(new FileInputStream("src\\main\\java\\images\\chicagoDeluxe.jpg"));
-        Image bbqImage = new Image(new FileInputStream("src\\main\\java\\images\\chicagoBBQ.jpg"));
-        Image meatzzaImage = new Image(new FileInputStream("src\\main\\java\\images\\chicagoMeat.jpg"));
+        // Check if OS is Windows
+        String OS = System.getProperty("os.name").toLowerCase();
+        String contentRoot;
+        if (OS.contains("win")) {
+            contentRoot = "src\\main\\resources\\";
+        } else {
+            contentRoot = "src/main/resources/";
+        }
+        Image defaultImage = new Image(new FileInputStream(contentRoot + "assets/chicagoDefault.jpg"));
+        Image deluxeImage = new Image(new FileInputStream(contentRoot + "assets/chicagoDeluxe.jpg"));
+        Image bbqImage = new Image(new FileInputStream(contentRoot + "assets/chicagoBBQ.jpg"));
+        Image meatzzaImage = new Image(new FileInputStream(contentRoot + "assets/chicagoMeat.jpg"));
 
         if (this.typeComboBox.getValue().equalsIgnoreCase(Constants.TYPES[0])) {
             this.resetAvailableToppings();
@@ -98,12 +161,14 @@ public class ChicagoViewController implements Initializable {
             this.availableToppings.getItems().removeAll(Constants.MEATZZA_TOPPINGS);
             this.pizzaImage.setImage(meatzzaImage);
         }
-
         this.smallPriceChange();
         this.mediumPriceChange();
         this.largePriceChange();
     }
 
+    /**
+     * Updates price text field for small pizza size when small radio button is selected.
+     */
     @FXML
     protected void smallPriceChange() {
         if (this.smallRadioButton.isSelected()) {
@@ -117,10 +182,12 @@ public class ChicagoViewController implements Initializable {
             } else {
                 this.priceTextField.setText(String.valueOf(Constants.SMALL_MEATZZA));
             }
-
         }
     }
 
+    /**
+     * Updates price text field for medium pizza size when medium radio button is selected.
+     */
     @FXML
     protected void mediumPriceChange() {
         if (this.mediumRadioButton.isSelected()) {
@@ -137,6 +204,9 @@ public class ChicagoViewController implements Initializable {
         }
     }
 
+    /**
+     * Updates price text field for large pizza size when large radio button is selected.
+     */
     @FXML
     protected void largePriceChange() {
         if (this.largeRadioButton.isSelected()) {
@@ -153,6 +223,11 @@ public class ChicagoViewController implements Initializable {
         }
     }
 
+    /**
+     * Adds a topping to pizza and update available topping list view, selected topping list view,
+     * and price text field accordingly for build your own pizza.
+     * Fails if: pizza type is not build your own, available topping is not selected, or there are already 7 toppings selected
+     */
     @FXML
     protected void addTopping() {
         if (!this.typeComboBox.getValue().equalsIgnoreCase(Constants.TYPES[0])) {
@@ -168,6 +243,11 @@ public class ChicagoViewController implements Initializable {
         }
     }
 
+    /**
+     * Removes a topping from pizza and update available topping list view, selected topping list view,
+     * and price text field accordingly for build your own pizza.
+     * Fails if: pizza type is not build your own, selected topping is not selected, or selected topping list view is empty
+     */
     @FXML
     protected void removeTopping() {
         if (!this.typeComboBox.getValue().equalsIgnoreCase(Constants.TYPES[0])) {
@@ -183,45 +263,53 @@ public class ChicagoViewController implements Initializable {
         }
     }
 
+    /**
+     * @return Returns size of pizza depending on which size radio button is selected.
+     */
     private Size getSize() {
-        if (this.smallRadioButton.isSelected()){
+        if (this.smallRadioButton.isSelected()) {
             return Size.SMALL;
-        } else if (this.mediumRadioButton.isSelected()){
+        } else if (this.mediumRadioButton.isSelected()) {
             return Size.MEDIUM;
         } else {
             return Size.LARGE;
         }
     }
 
+    /**
+     * Adds selected pizza to current order. Resets pizza menu display to default settings for next pizza.
+     * @throws FileNotFoundException
+     */
     @FXML
     protected void addOrder() throws FileNotFoundException {
         if (this.typeComboBox.getValue().equalsIgnoreCase(Constants.TYPES[0])) {
             Pizza byo = new ChicagoPizza().createBuildYourOwn();
             byo.setSize(getSize());
 
-            for(int i = 0; i < this.selectedToppings.getItems().stream().count(); i++){
-                byo.add(Topping.returnToppingEnumFromString(this.selectedToppings.getItems().get(i).toUpperCase()));
+            for(int i = 0; i < this.selectedToppings.getItems().stream().count(); i++) {
+                byo.add(Topping.returnToppingEnumFromString(this.selectedToppings.getItems().get(i)));
             }
 
-            if (this.currentOrder.add(byo)) {
+            if (currentOrder.add(byo)) {
                 this.outputTextArea.appendText("Pizza Order was Added!\n");
             }
+
         } else if (this.typeComboBox.getValue().equalsIgnoreCase(Constants.TYPES[1])) {
             Pizza deluxe = new ChicagoPizza().createDeluxe();
             deluxe.setSize(getSize());
-            if (this.currentOrder.add(deluxe)) {
+            if (currentOrder.add(deluxe)) {
                 this.outputTextArea.appendText("Pizza Order was Added!\n");
             }
         } else if (this.typeComboBox.getValue().equalsIgnoreCase(Constants.TYPES[2])) {
             Pizza bbq = new ChicagoPizza().createBBQChicken();
             bbq.setSize(getSize());
-            if (this.currentOrder.add(bbq)) {
+            if (currentOrder.add(bbq)) {
                 this.outputTextArea.appendText("Pizza Order was Added!\n");
             }
         } else {
             Pizza meatzza = new ChicagoPizza().createMeatzza();
             meatzza.setSize(getSize());
-            if (this.currentOrder.add(meatzza)) {
+            if (currentOrder.add(meatzza)) {
                 this.outputTextArea.appendText("Pizza Order was Added!\n");
             }
         }
