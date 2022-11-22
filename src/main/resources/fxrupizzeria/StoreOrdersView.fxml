@@ -29,9 +29,9 @@
                     </children>
                 </HBox>
                 <ListView fx:id="storeOrderListView" layoutX="17.0" layoutY="103.0" prefHeight="220.0" prefWidth="466.0" />
-                <HBox alignment="CENTER" layoutX="129.0" layoutY="345.0" prefHeight="26.0" prefWidth="242.0" spacing="20.0">
+                <HBox alignment="CENTER" layoutX="129.0" layoutY="345.0" prefHeight="26.0" prefWidth="263.0" spacing="20.0">
                     <children>
-                        <Button fx:id="cancelOrderButton" mnemonicParsing="false" onAction="#cancelOrder" text="Cancel Order" />
+                        <Button fx:id="cancelOrderButton" mnemonicParsing="false" onAction="#cancelOrder" prefHeight="26.0" prefWidth="122.0" text="Cancel Order" />
                         <Button fx:id="exportStoreOrderButton" mnemonicParsing="false" onAction="#exportOrder" prefHeight="26.0" prefWidth="147.0" text="Export Store Order" />
                     </children>
                 </HBox>

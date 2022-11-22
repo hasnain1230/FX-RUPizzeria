@@ -32,7 +32,6 @@ public class StoreOrdersViewController implements Initializable {
      */
     @FXML
     private ListView<Pizza> storeOrderListView;
-
     /**
      * This is the text area where all the store order output will be displayed.
      */
@@ -40,9 +39,8 @@ public class StoreOrdersViewController implements Initializable {
     private TextArea outputStoreOrdersTextArea;
 
     /**
-     * Called to initialize a controller after its root element has been
-     * completely processed.
-     *
+     * This method gets all the orders in store orders and initializes the order number combo box for the GUI.
+     * It will be called automatically upon the start of the program.
      * @param location  The location used to resolve relative paths for the root object, or
      *                  {@code null} if the location is not known.
      * @param resources The resources used to localize the root object, or {@code null} if
@@ -56,7 +54,8 @@ public class StoreOrdersViewController implements Initializable {
     }
 
     /**
-     *
+     * This updates the stages, including: order total text field and store order list view,
+     * when the user chooses different orders in the order number combo box.
      */
     @FXML
     protected void updateStage() {
@@ -77,8 +76,18 @@ public class StoreOrdersViewController implements Initializable {
         this.orderTotalTextField.setText(String.format("$ %.2f", subTotal * Constants.CALCULATED_SALES_TAX));
     }
 
+    /**
+     * This cancels an order in store orders.
+     * Fails if: user does not select order to cancel or store orders are empty
+     */
     @FXML
     protected void cancelOrder() {
+
+        if(this.orderNumberComboBox.getValue() == null) {
+            this.outputStoreOrdersTextArea.appendText("Cannot cancel unselected order.\n");
+            return;
+        }
+
         Integer currentOrderID = this.orderNumberComboBox.getValue();
         RUPizzeriaViewController.getStoreOrders().getOrders().remove(currentOrderID);
         this.orderNumberComboBox.getItems().remove(currentOrderID);
@@ -88,6 +97,9 @@ public class StoreOrdersViewController implements Initializable {
         this.outputStoreOrdersTextArea.appendText("Order " + currentOrderID + " has been cancelled.\n");
     }
 
+    /**
+     * This exports the store orders to an external file, location is given to user in output text area.
+     */
     @FXML
     protected void exportOrder() {
         this.outputStoreOrdersTextArea.appendText(String.format("All orders have been exported to %s", RUPizzeriaViewController.getStoreOrders().export()));

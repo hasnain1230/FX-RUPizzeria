@@ -7,7 +7,6 @@ import pizza.properties.Pizza;
 import java.io.*;
 import java.util.HashMap;
 
-
 /**
  * Encapsulation that stores all the orders placed in the {@code FX-RUPizzeria} store
  * @authors Hasnain Ali, Carolette Saguil
